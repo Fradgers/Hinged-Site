@@ -1,0 +1,275 @@
+!f2f1df
+!de6619
+!ad3748
+!171e2b
+!000000
+
+
+html, body, h1 {
+	margin: 0;
+	padding: 0;
+}
+
+/*uncomment these for debugging div positions*/
+/*
+div { !border: 1px solid #ff00ff; }
+#header { border: 1px solid #0000ff; }
+#header div { border: 1px dashed #0000ff; }
+#content { border: 1px solid #00ff00; }
+#content div { border: 1px dashed #00ff00; }
+#footer { border: 1px solid #ff0000; }
+#footer div { border: 1px dashed #ff0000; }
+*/
+
+.hidden {	/*use to make html elements temporarily invisible*/
+	display: none;
+}
+
+
+html {
+	overflow-y: scroll;	/*force all pages to always have a vertical scrollbar*/
+}						/*vertical scrollbar affects width of window (messes up centred elements)*/
+
+body {
+	font-family: Arial, Helvetica, Verdana, Sans-serif;
+	font-size: 12px;
+	color: #f2f1df;
+	background-color: #000000;
+}
+
+#page-container {	/*pending removal*/
+	!margin: auto;
+	!border: 1px none #ff00ff;
+}
+
+#header {
+	height: 548px;	/*height of slideshow*/
+	width: 920px;	/*width of slideshow plus navigation bar*/
+	margin: auto;	/*keep centred in window*/
+}
+
+
+.slideshow {
+	width: 760px;
+	height: 548px;
+	!float:left;
+	!position:absolute;
+	margin-left: 150px;		/*offset by width of navigation bar*/
+	z-index: -50;
+}
+
+.slideshow img {
+	padding: 0px;
+	background-color: #eee;
+}
+
+/*Styles common to the main navigation bar and the slideshow navigation bar*/
+.navigation ul {
+	margin: 0;
+	padding: 0;
+}
+.navigation li {
+	list-style-type: none;
+	position: relative;
+	z-index: 50;
+}
+.navigation li a {
+	display: block;
+	height: 0px !important;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+
+/*Styles specific to the main navigation bar*/
+.navigation#main_nav {
+	width: 150px;
+	!padding-top: 10px;
+	float: left;
+	position: relative;
+	top: 300px;
+}
+.navigation#main_nav li {
+	padding-top: 10px;
+	padding-left: 20px;
+}
+.navigation#main_nav li a {
+	padding: 50px 0 0 0;
+	width: 106px;
+}
+.navigation#main_nav li a:hover {
+	background-position: 0 -50px;
+}
+.navigation#main_nav li#about a {
+	background-image: url(../resources/images/icons/about.png);
+}
+.navigation#main_nav li#services a {
+	background-image: url(../resources/images/icons/services.png);
+}
+.navigation#main_nav li#portfolio a {
+	background-image: url(../resources/images/icons/portfolio.png);
+}
+.navigation#main_nav li#contact a {
+	background-image: url(../resources/images/icons/contact.png);
+}
+
+#logo {
+	width: 200;
+	height:75;
+	position: relative;
+	top: -75px;
+	left: 200px;
+}
+
+
+/*Override the style for the main navigation button referring to the current page*/
+body.about .navigation#main_nav li#about a,
+body.services .navigation#main_nav li#services a,
+body.portfolio .navigation#main_nav li#portfolio a,
+body.contact .navigation#main_nav li#contact a {
+	background-position: 0 -100px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	cursor: default;
+}
+
+
+/*Styles specific to the slideshow navigation bar*/
+.navigation#slide_nav {
+	top: -366px;
+	position: relative;
+	height: 20px;
+}
+.navigation#slide_nav li {
+	float: left;
+	padding: 5px;
+	margin-right: 2px;
+}
+.navigation#slide_nav li a:hover {
+	background-position: 0 -25px;
+}
+.navigation#slide_nav li a {
+	width: 25px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	padding: 25px 0 0 0;
+}
+.navigation#slide_nav li#prev a {
+	background-image: url(../resources/images/icons/previous.png);
+}
+.navigation#slide_nav li#next a {
+	background-image: url(../resources/images/icons/next.png);
+}
+.navigation#slide_nav li#pause a {
+	background-image: url(../resources/images/icons/pause.png);
+}
+.navigation#slide_nav li#play a {
+	background-image: url(../resources/images/icons/play.png);
+}
+
+
+#content {
+	line-height: 18px;
+	max-width: 800px;
+	margin: auto;
+	margin-top: 15px;
+	text-align:center;	/*treat all inline-block divs nested inside #content as centered text*/
+						/*see: (#content .padding) and (#content .article)*/
+	!float:left;		/*TODO: if IE does not support the above, we should just float left*/
+	!border: 1px solid #00ff00;
+}
+body.about #content {
+	max-width: 100%;
+}
+#content h2, p {
+	margin: 0;
+	padding: 0;
+	padding-bottom: 0px;
+}
+#content h2 {
+	margin:4px;
+}
+#content b {
+	color: #ad3748;
+}
+#content .article {
+	margin: 15px;
+	display:inline-block;		/*allows articles to be centre-aligned on the page*/
+	border: 3px dashed #000000;
+	text-align:left;			/*overrides #content text-align:center property*/
+}
+body.about #content .article {
+	!width: 377px;
+	!height: 240px;
+}
+#content .article img {
+	border: 2px solid black;
+	float: left;
+	width: 81px;
+	height: 77px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+#content .article h2 a {
+	text-decoration: none;
+	color: #de6619;
+}
+#content .article a:hover {
+	text-decoration: underline;
+	color: white;
+}
+#content .article p {
+	text-align: justify;
+	padding: 5px;
+}
+#content .article iframe {
+	padding: 15px;
+}
+
+#content .transbox {
+	background-color: #333333;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	max-width: 800px;
+}
+body.about #content .transbox {
+	width:350px;
+	max-height:290px;
+	cursor: pointer;
+}
+body.about #content .transbox:hover {
+	background-color: #111111;
+	border: 3px solid #ad3748;
+}
+
+#content .padding {
+	padding-top: 25px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-bottom: 25px;
+	display:inline-table;	/*treats text inside content padding divs as non-text.*/
+							/*fixes an issue where, because content articles are treated as text*/
+							/*and also contain text, articles of different sizes weren't aligned correctly*/
+}
+
+
+#footer {
+	font-family: Tahoma, Arial, Helvetica, Sans-serif;
+	font-size: 10px;
+	color: #f2f1df;
+	border-top: 1px solid #f2f1df;
+	padding: 13px 25px;
+	line-height: 18px;
+	!border: 1px solid #ff0000;
+}
+#footer a {
+	color: #f2f1df;
+	text-decoration: none;
+}
+#footer a:hover {
+	color: #ad3748;
+}
+#footer #altnav {
+	width: 350px;
+	float: right;
+	text-align: right;
+}
