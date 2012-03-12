@@ -116,14 +116,18 @@ display: block;
 			</a>
 		</div>
 	</div>
-	
+
 	<div id="content">
+	<?php
+		$sitecontent = mysql_query("SELECT * FROM shows WHERE ShowTitle='The Soloist'")
+			or die(mysql_error());
+		$pagecontent = mysql_fetch_array($sitecontent);
+		
+		if ($pagecontent) {
+	?>	
 		<div class="article transbox">
 		<div class="padding">
 		<?php
-			$sitecontent = mysql_query("SELECT * FROM shows WHERE ShowTitle='The Soloist'")
-				or die(mysql_error());
-			$pagecontent = mysql_fetch_array($sitecontent);
 			echo "\t<h2>";
 			echo $pagecontent['ShowTitle'];
 			echo "</h2>\n\t\t\t<p>";
@@ -132,31 +136,33 @@ display: block;
 		?>
 		</div></div>
 
-		<?php
-			// Load any relevant video files that are in a format that can be played
-			foreach ( range(1,$pagecontent['VideoCount']) as $video_idx ){
+	<?php
+		}
+		
+		// Load any relevant video files that are in a format that can be played
+		foreach ( range(1,$pagecontent['VideoCount']) as $video_idx ){
+		
+			$videofiles = mysql_query("SELECT VideoFilename,Format,VideoNo FROM videos WHERE ShowID='Notredame' AND (Format='video/mp4' OR Format='video/ogg') AND VideoNo=$video_idx")
+				or die(mysql_error());
 			
-				$videofiles = mysql_query("SELECT VideoFilename,Format,VideoNo FROM videos WHERE ShowID='Notredame' AND (Format='video/mp4' OR Format='video/ogg') AND VideoNo=$video_idx")
-					or die(mysql_error());
-	
-				// If any video files can be played, add an article div and load the video
-				if ($videofile = mysql_fetch_array($videofiles)) {
-					echo "\n\t\t<div class=\"article transbox\"><div class=\"padding\">\n";
-					echo "\t\t<video width=\"480\" height=\"270\" controls=\"controls\">\n";
-					
-					do {
-						echo "\t\t\t<source src=\"";
-						echo $videofile['VideoFilename'];
-						echo "\" type=\"";
-						echo $videofile['Format'];
-						echo "\" />\n";
-					} while($videofile = mysql_fetch_array($videofiles));
-				
-					echo "\t\t\tYour browser does not support the video tag.\n";
-					echo "\t\t</video>\n\t\t</div></div>\n";
-				}
+			// If any video files can be played, add an article div and load the video			
+			if ($videofile = mysql_fetch_array($videofiles)) {
+				echo "\n\t\t<div class=\"article transbox\"><div class=\"padding\">\n";
+				echo "\t\t<video width=\"480\" height=\"270\" controls=\"controls\">\n";
+			
+			do {
+				echo "\t\t\t<source src=\"";
+				echo $videofile['VideoFilename'];
+				echo "\" type=\"";
+				echo $videofile['Format'];
+					echo "\" />\n";
+				} while($videofile = mysql_fetch_array($videofiles));
+			
+				echo "\t\t\tYour browser does not support the video tag.\n";
+				echo "\t\t</video>\n\t\t</div></div>\n";
 			}
-		?>
+		}
+	?>
 	</div>
 	
 	<div id="footer">
