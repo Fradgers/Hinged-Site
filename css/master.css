@@ -169,7 +169,7 @@ body.contact .navigation#main_nav li#contact a {
 
 #content {
 	line-height: 18px;
-	max-width: 800px;
+	max-width: 1200px;
 	margin: auto;
 	margin-top: 15px;
 	text-align:center;	/*treat all inline-block divs nested inside #content as centered text*/
