@@ -29,10 +29,10 @@ $data = array(
 	new Content(
 		'Promo',
 		'New promotional video for The Soloist.',
-		array(
-			new Video('http://www.youtube.com/v/XMslJ4kmvwc?version=3&amp;hl=en_GB',FLASH)
+		new VideoGroup(
+			new Video('http://www.youtube.com/v/XMslJ4kmvwc?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
+			VIDEO_LINK
 		),
-		VIDEO_LINK,
 		'',
 		SOLOIST, VIDEO),
 	new Content(
@@ -57,21 +57,19 @@ $data = array(
 		</p>',
 		'',
 		'',
-		'',
 		SOLOIST, TEXT),
 	new Content(
 		'Rehearsal video',
 		'Header text for the first video.',
-		array(
-			new Video('http://www.youtube.com/v/wU9XE7o3l7Q?version=3&amp;hl=en_GB',FLASH)
+		new VideoGroup(
+			new Video('http://www.youtube.com/v/wU9XE7o3l7Q?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
+			VIDEO_LINK
 		),
-		VIDEO_LINK,
 		'Footer text for the first video.',
 		SOLOIST, VIDEO),
 	new Content(
 		'Review',
 		'First review text.',
-		'',
 		'',
 		'',
 		SOLOIST, TEXT),
@@ -80,16 +78,15 @@ $data = array(
 		'Second review text.',
 		'',
 		'',
-		'',
 		SOLOIST, TEXT),
 		
 	new Content(
 		'Teaser Video',
 		'Header text for second video.',
-		array(
-			new Video('http://www.youtube.com/v/DD8nro616hM?version=3&amp;hl=en_GB',FLASH)
+		new VideoGroup(
+			new Video('http://www.youtube.com/v/DD8nro616hM?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
+			VIDEO_LINK
 		),
-		VIDEO_LINK,
 		'',
 		SOLOIST, VIDEO),
 
@@ -100,17 +97,18 @@ $data = array(
 		 Notredame summary text. Notredame summary text.',
 		 '',
 		 '',
-		 '',
 		 NOTREDAME, TEXT),
 	new Content(
 		'Notredame Teaser Trailer',
 		'Header text for the teaser trailer.',
-		array(
-			new Video('resources/videos/notredame.mp4',MP4),
-			new Video('resources/videos/notredame.webmvp8.webm',WEBM),
-			new Video('resources/videos/notredame.ogv',OGG),
+		new VideoGroup(
+			array(
+				new Video('resources/videos/notredame.mp4',MP4),
+				new Video('resources/videos/notredame.webmvp8.webm',WEBM),
+				new Video('resources/videos/notredame.ogv',OGG),
+			),
+			VIDEO_FILE
 		),
-		VIDEO_FILE,
 		'Footer text for the teaser trailer.',
 		NOTREDAME, VIDEO)
 

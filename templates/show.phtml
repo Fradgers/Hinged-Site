@@ -55,8 +55,8 @@
 			<?php endforeach; ?>
 		</div> <!-- End of slideshow -->
 		
-		<div id="logo" OnClick="document.location='index.html'">
-			<noscript><a href="index.html"></noscript>
+		<div id="logo" OnClick="document.location='index.php'">
+			<noscript><a href="index.php"></noscript>
 			<img src="resources/images/icons/logo.png" width="200" height="75"/>
 			<noscript></a></noscript>
 		</div>
@@ -71,16 +71,16 @@
 			<div class="padding">
 				<h2><?=$content->title?></h2>
 				<p><?=$content->summary1?></p>
-				<?php if ($content->videos): ?>
+				<?php if ($content->videogroup): ?>
 					<!-- If the video list is marked as "flashonly", don't use html5 video tag,
 						 just embed first video directly as flash -->
-					<?php if ($content->flashonly): ?>
-						<embed src="<?=$content->videos[0]->location?>" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>
+					<?php if ($content->videogroup->type == VIDEO_LINK): ?>
+						<embed src="<?=$content->videogroup->videos->location?>" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>
 					<?php else: ?>
 						<!-- Otherwise use html5 video tag as normal (use any flash urls as fallback) -->
 						<video width="480" height="270" controls="controls" poster="resources/images/notredame_still.png">
 						
-						<?php foreach ($content->videos as $video): ?>
+						<?php foreach ($content->videogroup->videos as $video): ?>
 							<?php if ($video->type != FLASH): ?>
 								<source src="<?=$video->location?>" type="<?=$video->type?>" />
 							<?php else: ?>

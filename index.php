@@ -14,24 +14,26 @@ $page->links = array(
 	//new Link('Contact Us', 'contact', 'contact.html'),
 	new Link('The Soloist', 'soloist', 'soloist.php'),
 	new Link('Notredame', 'notredame', 'notredame.php'),
-	new Link('Videos', 'video', 'videos.php'),
+	new Link('Videos', 'videos', 'videos.php'),
 	new Link('Reviews', 'reviews', ''),
 );
 
 $page->slides = array(
 	'resources/images/dance_photos_3.jpg',
-	'resources/images/soloist_still.png'
+	'resources/images/sepia1.jpg',
+	'resources/images/soloist_still_edit.png',
+	'resources/images/sepia2.jpg',
 );
 
 $page->featured = new Content(
 	'Featured Video',
 	'New promotional video for The Soloist.',
-	array(
-		new Video('http://www.youtube.com/v/XMslJ4kmvwc?version=3&amp;hl=en_GB',
-				  FLASH)
+	new VideoGroup(
+		new Video('http://www.youtube.com/v/XMslJ4kmvwc?version=3&amp;hl=en_GB',FLASH),
+		VIDEO_LINK
 	),
-	VIDEO_LINK,
-	'','',''
+	'',
+	SOLOIST,VIDEO
 );
 
 $page->articles = array(

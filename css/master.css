@@ -34,7 +34,8 @@ body {
 	font-family: Arial, Helvetica, Verdana, Sans-serif;
 	font-size: 12px;
 	color: #f2f1df;
-	background-color: #000000;
+	background: url(../resources/images/bw_gradient.png) repeat-y;
+	background-size: 100% 2px;
 }
 
 #page-container {	/*pending removal*/
@@ -119,6 +120,12 @@ body {
 .navigation#main_nav li#contact a {
 	background-image: url(../images/icons/contact.png);
 }
+.navigation#main_nav li#videos a {
+	background-image: url(../images/icons/videos.png);
+}
+.navigation#main_nav li#reviews a {
+	background-image: url(../images/icons/reviews.png);
+}
 
 #logo {
 	width: 200px;
@@ -135,7 +142,9 @@ body.home .navigation#main_nav li#home a,
 body.classes .navigation#main_nav li#classes a,
 body.soloist .navigation#main_nav li#soloist a,
 body.notredame .navigation#main_nav li#notredame a,
-body.contact .navigation#main_nav li#contact a {
+body.contact .navigation#main_nav li#contact a,
+body.videos .navigation#main_nav li#videos a,
+body.reviews .navigation#main_nav li#reviews a {
 	background-position: 0 -100px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
@@ -184,6 +193,7 @@ body.contact .navigation#main_nav li#contact a {
 	max-width: 800px;
 	margin: auto;
 	margin-top: 15px;
+	padding: 0px 15px 0px 15px;
 	text-align:center;	/*treat all inline-block divs nested inside #content as centered text*/
 						/*see: (#content .padding) and (#content .article)*/
 	!float:left;		/*TODO: if IE does not support the above, we should just float left*/
