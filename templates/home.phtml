@@ -63,8 +63,7 @@
 		
 	</div> <!-- End of header -->
 	
-	<div id="content">
-	
+	<div id="content"> <!-- Featured Content -->
 		<div style="text-align: center; margin: 25px;">
 			Welcome to the HINGED dance company website. Enjoy your stay.
 		</div>
@@ -101,7 +100,9 @@
 				<?php endif; ?>
 			</div></div>
 		<?php endif; ?>
-		
+	</div> <!-- End of Featured Content -->
+	
+	<div id="content">	<!-- New Content -->
 		<!-- List of homepage articles -->
 		<?php foreach ($this->articles as $article): ?>
 			<div class="article transbox summary"
@@ -128,10 +129,7 @@
 				<?php endif; ?>
 			</div></div>
 		<?php endforeach; ?>
-
-		<!-- End of list of homepage articles -->
-		
-	</div> <!-- End of content -->
+	</div> <!-- End of New Content -->
 	
 	<div id="footer">
 	

@@ -249,16 +249,6 @@ body.home #content {
 	border: 3px solid #ad3748;
 }
 
-#content .transbox.result {
-	width:1550px;
-	max-height:350px;
-	cursor: pointer;
-}
-#content .transbox.result:hover {
-	background-color: #111111;
-	border: 3px solid #ad3748;
-}
-
 #content .padding {
 	padding-top: 25px;
 	padding-left: 25px;
