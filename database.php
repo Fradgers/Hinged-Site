@@ -3,8 +3,29 @@
 
 include_once('template_lib.php');
 
+
+/**
+ * Returns the url query as associative array
+ *
+ * @param    string    query
+ * @return    array    params
+ */
+function convert_url_query($query) {
+    $query_parts = explode('&', $query);
+   
+    $params = array();
+    foreach ($query_parts as $param) {
+        $item = explode('=', $param);
+        $params[$item[0]] = $item[1];
+    }
+   
+    return $params;
+}
+
+
 class Lookup {
 	public $key_show_id = '';
+	public $key_content_type = '';
 	public $key_resource_type = '';	
 	
 	public function filter($array) {
@@ -18,6 +39,9 @@ class Lookup {
 			return false;
 		
 		if ($this->key_resource_type && ($content->resource_type != $this->key_resource_type))
+			return false;
+			
+		if ($this->key_content_type && ($content->content_type != $this->key_content_type))
 			return false;
 			
 		return true;
@@ -34,7 +58,7 @@ $data = array(
 			VIDEO_LINK
 		),
 		'',
-		SOLOIST, VIDEO),
+		SOLOIST, TRAILER, VIDEO),
 	new Content(
 		'The Soloist',
 		'<p>
@@ -57,7 +81,7 @@ $data = array(
 		</p>',
 		'',
 		'',
-		SOLOIST, TEXT),
+		SOLOIST, DESCRIPTION, TEXT),
 	new Content(
 		'Rehearsal video',
 		'Header text for the first video.',
@@ -66,19 +90,19 @@ $data = array(
 			VIDEO_LINK
 		),
 		'Footer text for the first video.',
-		SOLOIST, VIDEO),
+		SOLOIST, REHEARSAL, VIDEO),
 	new Content(
 		'Review',
 		'First review text.',
 		'',
 		'',
-		SOLOIST, TEXT),
+		SOLOIST, REVIEW, TEXT),
 	new Content(
 		'Review',
 		'Second review text.',
 		'',
 		'',
-		SOLOIST, TEXT),
+		SOLOIST, REVIEW, TEXT),
 		
 	new Content(
 		'Teaser Video',
@@ -88,7 +112,7 @@ $data = array(
 			VIDEO_LINK
 		),
 		'',
-		SOLOIST, VIDEO),
+		SOLOIST, TRAILER, VIDEO),
 
 	new Content(
 		'Notredame',
@@ -97,7 +121,7 @@ $data = array(
 		 Notredame summary text. Notredame summary text.',
 		 '',
 		 '',
-		 NOTREDAME, TEXT),
+		 NOTREDAME, DESCRIPTION, TEXT),
 	new Content(
 		'Notredame Teaser Trailer',
 		'Header text for the teaser trailer.',
@@ -110,7 +134,7 @@ $data = array(
 			VIDEO_FILE
 		),
 		'Footer text for the teaser trailer.',
-		NOTREDAME, VIDEO)
+		NOTREDAME, TRAILER, VIDEO)
 
 
 ); // end of data array

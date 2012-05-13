@@ -15,14 +15,16 @@ $page->links = array(
 	new Link('The Soloist', 'soloist', 'soloist.php'),
 	new Link('Notredame', 'notredame', 'notredame.php'),
 	new Link('Videos', 'videos', 'videos.php'),
-	new Link('Reviews', 'reviews', ''),
+	new Link('Reviews', 'reviews', '#'),
 );
 
 $page->slides = array(
 	'resources/images/dance_photos_3.jpg',
 	'resources/images/sepia1.jpg',
-	'resources/images/soloist_still_edit.png',
+	'resources/images/tairabw_50_edit.jpg',
 	'resources/images/sepia2.jpg',
+	'resources/images/TairaPose11.jpg',
+	'resources/images/soloist_still_edit.png',
 );
 
 $lookup = new Lookup();

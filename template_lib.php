@@ -72,6 +72,12 @@ define('OTHER','other');
 define('NOTREDAME','notredame');
 define('SOLOIST','soloist');
 
+define('REHEARSAL','rehearsal');
+define('PERFORMANCE','performance');
+define('REVIEW','review');
+define('TRAILER','trailer');
+define('DESCRIPTION','description');
+
 class Content {
     public $title;
 	public $summary1;
@@ -79,14 +85,16 @@ class Content {
     public $summary2;
 	
 	public $show_id;
+	public $content_type;
 	public $resource_type;
 	
-	public function __construct($title, $summary1, $videogroup, $summary2, $show_id, $resource_type) {
+	public function __construct($title, $summary1, $videogroup, $summary2, $show_id, $content_type, $resource_type) {
         $this->title = $title;
         $this->summary1 = $summary1;
         $this->videogroup = $videogroup;
         $this->summary2 = $summary2;
         $this->show_id = $show_id;
+        $this->content_type = $content_type;
         $this->resource_type = $resource_type;
     }
 }
