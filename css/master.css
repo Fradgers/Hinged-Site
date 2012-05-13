@@ -93,43 +93,55 @@ body {
 	padding-left: 20px;
 }
 .navigation#main_nav li a {
-	padding: 50px 0 0 0;
 	width: 106px;
+	color: #777777;
+	text-decoration: underline;
+	
+	!padding: 50px 0 0 0; /*swap these two lines for text navigation links*/
+	display: inline;
 }
 .navigation#main_nav li a:hover {
 	background-position: 0 -50px;
+	color: #ad3748;
 }
-.navigation#main_nav li#about a {
-	background-image: url(../resources/images/icons/about.png);
+.navigation#main_nav li#home a {
+	background-image: url(../images/icons/home.png);
 }
-.navigation#main_nav li#services a {
-	background-image: url(../resources/images/icons/services.png);
+.navigation#main_nav li#classes a {
+	background-image: url(../images/icons/classes.png);
 }
-.navigation#main_nav li#portfolio a {
-	background-image: url(../resources/images/icons/portfolio.png);
+.navigation#main_nav li#soloist a {
+	background-image: url(../images/icons/soloist.png);
+}	
+.navigation#main_nav li#notredame a {
+	background-image: url(../images/icons/notredame.png);
 }
 .navigation#main_nav li#contact a {
-	background-image: url(../resources/images/icons/contact.png);
+	background-image: url(../images/icons/contact.png);
 }
 
 #logo {
-	width: 200;
-	height:75;
+	width: 200px;
+	height: 75px;
 	position: relative;
 	top: -75px;
 	left: 200px;
+	cursor: pointer;
 }
 
 
 /*Override the style for the main navigation button referring to the current page*/
-body.about .navigation#main_nav li#about a,
-body.services .navigation#main_nav li#services a,
-body.portfolio .navigation#main_nav li#portfolio a,
+body.home .navigation#main_nav li#home a,
+body.classes .navigation#main_nav li#classes a,
+body.soloist .navigation#main_nav li#soloist a,
+body.notredame .navigation#main_nav li#notredame a,
 body.contact .navigation#main_nav li#contact a {
 	background-position: 0 -100px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	cursor: default;
+	text-decoration: none;
+	color: #f2f1df;
 }
 
 
@@ -154,22 +166,22 @@ body.contact .navigation#main_nav li#contact a {
 	padding: 25px 0 0 0;
 }
 .navigation#slide_nav li#prev a {
-	background-image: url(../resources/images/icons/previous.png);
+	background-image: url(../images/icons/previous.png);
 }
 .navigation#slide_nav li#next a {
-	background-image: url(../resources/images/icons/next.png);
+	background-image: url(../images/icons/next.png);
 }
 .navigation#slide_nav li#pause a {
-	background-image: url(../resources/images/icons/pause.png);
+	background-image: url(../images/icons/pause.png);
 }
 .navigation#slide_nav li#play a {
-	background-image: url(../resources/images/icons/play.png);
+	background-image: url(../images/icons/play.png);
 }
 
 
 #content {
 	line-height: 18px;
-	max-width: 1200px;
+	max-width: 800px;
 	margin: auto;
 	margin-top: 15px;
 	text-align:center;	/*treat all inline-block divs nested inside #content as centered text*/
@@ -177,7 +189,7 @@ body.contact .navigation#main_nav li#contact a {
 	!float:left;		/*TODO: if IE does not support the above, we should just float left*/
 	!border: 1px solid #00ff00;
 }
-body.about #content {
+body.home #content {
 	max-width: 100%;
 }
 #content h2, p {
@@ -197,15 +209,15 @@ body.about #content {
 	border: 3px dashed #000000;
 	text-align:left;			/*overrides #content text-align:center property*/
 }
-body.about #content .article {
+body.home #content .article {
 	!width: 377px;
 	!height: 240px;
 }
 #content .article img {
 	border: 2px solid black;
 	float: left;
-	width: 81px;
-	height: 77px;
+	max-width: 100px;
+	max-height: 100px;
 	margin-right: 10px;
 	margin-bottom: 5px;
 }
@@ -231,12 +243,12 @@ body.about #content .article {
 	border-radius: 15px;
 	max-width: 800px;
 }
-body.about #content .transbox {
+body.home #content .transbox {
 	width:350px;
 	max-height:290px;
 	cursor: pointer;
 }
-body.about #content .transbox:hover {
+body.home #content .transbox:hover {
 	background-color: #111111;
 	border: 3px solid #ad3748;
 }

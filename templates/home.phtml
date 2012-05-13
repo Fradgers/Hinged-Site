@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title><?=$this->title?></title>
+	
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="en-us" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	
+	<meta name="MSSmartTagsPreventParsing" content="true" />
+	<meta name="description" content="Description" />
+	<meta name="keywords" content="Keywords" />
+	<meta name="author" content="Fradgers" />
+	
+	<link rel="stylesheet" href="css/master.css">
+	<!-- <link rel="stylesheet" href="css/ie7.css"> -->
+
+	<!-- include jQuery library and Cycle slideshow plugin -->
+	<script type="text/javascript" src="scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery.cycle.all.latest.js"></script>
+	
+	<!-- Cycle slideshow settings -->
+	<script type="text/javascript">
+	$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx:     'scrollHorz',
+		prev:   '#prev',
+		next:   '#next',
+		timeout: 3000,
+		speed: 2000,
+		pause: 1
+	});
+	});
+	</script>
+</head>
+
+<body class="home">
+<div id="page-container">
+
+	<div id="header">
+	
+		<!-- Navigation links -->
+		<div class="navigation" id="main_nav">
+			<ul>
+				<?php foreach ($this->links as $link): ?>
+					<li id="<?=$link->style_id?>"><a href="<?=$link->link?>"><?=$link->name?></a></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+
+		<div id="slideshow" class="slideshow">
+			<?php foreach ($this->slides as $slide): ?>
+				<img src="<?=$slide?>" width="760" height="548"/>
+			<?php endforeach; ?>
+		</div> <!-- End of slideshow -->
+		
+		<div id="logo" OnClick="document.location='index.html'">
+			<noscript><a href="index.html"></noscript>
+			<img src="images/icons/logo.png" width="200" height="75"/>
+			<noscript></a></noscript>
+		</div>
+		
+	</div> <!-- End of header -->
+	
+	<div id="content">
+	
+		<div style="text-align: center; margin: 25px;">
+			Welcome to the HINGED dance company website. Enjoy your stay.
+		</div>
+		
+		<?php if ($this->featured): ?>
+			<div class="article transbox">
+			<div class="padding">
+				<h2><?=$this->featured->title?></h2>
+				<p><?=$this->featured->summary1?></p>
+				<?php if ($this->featured->videos): ?>
+					<!-- If the video list is marked as "flashonly", don't use html5 video tag,
+						 just embed first video directly as flash -->
+					<?php if ($this->featured->flashonly): ?>
+						<embed src="<?=$this->featured->videos[0]->location?>" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>
+					<?php else: ?>
+						<!-- Otherwise use html5 video tag as normal (use any flash urls as fallback) -->
+						<video width="480" height="270" controls="controls" poster="images/notredame_still.png">
+						
+						<?php foreach ($this->featured->videos as $video): ?>
+							<?php if ($video->type): ?>
+								<source src="<?=$video->location?>" type="<?=$video->type?>" />
+							<?php else: ?>
+								<embed src="<?=$video->location?>" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true">
+									Bad browser!
+								</embed>
+							<?php endif; ?>
+						<?php endforeach; ?>
+						
+						</video>
+					<?php endif; ?>
+				<?php endif; ?>
+				<?php if ($this->featured->summary2): ?>
+					<p><?=$this->featured->summary2?></p>
+				<?php endif; ?>
+			</div></div>
+		<?php endif; ?>
+		
+		<!-- List of homepage articles -->
+		<?php foreach ($this->articles as $article): ?>
+			<div class="article transbox"
+				<?php if ($article->link): ?>
+					OnClick="document.location='<?=$article->link?>'"
+				<?php endif; ?>
+			>
+			<div class="padding">
+			<?php if ($article->link): ?>
+				<noscript><a href="<?=$article->link?>"></noscript>
+			<?php endif; ?>
+				<?php if ($article->thumbnail): ?>
+					<img src="<?=$article->thumbnail?>" alt="Thumbnail" />
+				<?php endif; ?>
+				<h2><a>
+					<?=$article->title?>
+				</a></h2>
+				<p>
+					<?=$article->summary?>
+				</p>
+				<?php if ($article->link): ?>
+					<a>Read more...</a>
+					<noscript></a></noscript>
+				<?php endif; ?>
+			</div></div>
+		<?php endforeach; ?>
+
+		<!-- End of list of homepage articles -->
+		
+	</div> <!-- End of content -->
+	
+	<div id="footer">
+	
+		<div id="altnav"> -
+			<?php foreach ($this->links as $link): ?>
+				<a href="<?=$link->link?>"><?=$link->name?></a> -
+			<?php endforeach; ?>
+		</div>
+		Copyright &copy; HINGED
+		
+	</div> <!-- End of footer -->
+
+</div> <!-- End of page-container -->
+</body>
+
+</html>
