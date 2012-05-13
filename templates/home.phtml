@@ -35,7 +35,7 @@
 	</script>
 </head>
 
-<body class="home">
+<body class="<?=$this->page_id?>">
 <div id="page-container">
 
 	<div id="header">
@@ -84,7 +84,7 @@
 						<video width="480" height="270" controls="controls" poster="images/notredame_still.png">
 						
 						<?php foreach ($this->featured->videos as $video): ?>
-							<?php if ($video->type): ?>
+							<?php if ($video->type != FLASH): ?>
 								<source src="<?=$video->location?>" type="<?=$video->type?>" />
 							<?php else: ?>
 								<embed src="<?=$video->location?>" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true">

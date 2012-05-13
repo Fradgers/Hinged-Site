@@ -30,6 +30,12 @@ class Template {
 ?>
 
 <?php
+
+define('FLASH','flash');
+define('MP4','video/mp4');
+define('OGG','video/ogg');
+define('WEBM','video/webm');
+
 class Video {
 	public $location;
 	public $type;
@@ -42,6 +48,10 @@ class Video {
 ?>
 
 <?php
+
+define('VIDEO_LINK','flashonly');
+define('VIDEO_FILE','');
+
 class Content {
     public $title;
 	public $summary1;
