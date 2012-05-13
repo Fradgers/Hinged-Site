@@ -30,7 +30,8 @@ $page->featured = new Content(
 		new Video('http://www.youtube.com/v/XMslJ4kmvwc?version=3&amp;hl=en_GB',
 				  FLASH)
 	),
-	VIDEO_LINK
+	VIDEO_LINK,
+	'','',''
 );
 
 $page->articles = array(

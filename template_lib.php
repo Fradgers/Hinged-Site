@@ -36,6 +36,9 @@ define('MP4','video/mp4');
 define('OGG','video/ogg');
 define('WEBM','video/webm');
 
+define('VIDEO_LINK','flashonly');
+define('VIDEO_FILE','');
+
 class Video {
 	public $location;
 	public $type;
@@ -49,8 +52,14 @@ class Video {
 
 <?php
 
-define('VIDEO_LINK','flashonly');
-define('VIDEO_FILE','');
+define('VIDEO','video');
+define('TEXT','text');
+define('IMAGE','image');
+
+define('OTHER','other');
+
+define('NOTREDAME','notredame');
+define('SOLOIST','soloist');
 
 class Content {
     public $title;
@@ -59,12 +68,17 @@ class Content {
 	public $flashonly;
     public $summary2;
 	
-	public function __construct($title, $summary1, $videos = '', $flashonly = '', $summary2 = '') {
+	public $show_id;
+	public $resource_type;
+	
+	public function __construct($title, $summary1, $videos, $flashonly, $summary2, $show_id, $resource_type) {
         $this->title = $title;
         $this->summary1 = $summary1;
         $this->videos = $videos;
 		$this->flashonly = $flashonly;
         $this->summary2 = $summary2;
+        $this->show_id = $show_id;
+        $this->resource_type = $resource_type;
     }
 }
 ?>
