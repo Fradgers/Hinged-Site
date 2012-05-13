@@ -27,7 +27,7 @@
 		fx:     'scrollHorz',
 		prev:   '#prev',
 		next:   '#next',
-		timeout: 3000,
+		timeout: 4000,
 		speed: 2000,
 		pause: 1
 	});
@@ -65,10 +65,6 @@
 	
 	<div id="content">
 	
-		<div style="text-align: center; margin: 25px;">
-			Welcome to the HINGED dance company website. Enjoy your stay.
-		</div>
-		
 		<!-- Collection of show content -->
 		<?php foreach ($this->contents as $content): ?>
 			<div class="article transbox">
@@ -82,7 +78,7 @@
 						<embed src="<?=$content->videos[0]->location?>" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>
 					<?php else: ?>
 						<!-- Otherwise use html5 video tag as normal (use any flash urls as fallback) -->
-						<video width="480" height="270" controls="controls" poster="images/notredame_still.png">
+						<video width="480" height="270" controls="controls" poster="resources/images/notredame_still.png">
 						
 						<?php foreach ($content->videos as $video): ?>
 							<?php if ($video->type != FLASH): ?>

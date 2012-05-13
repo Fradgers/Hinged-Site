@@ -34,13 +34,15 @@ $page->featured = new Content(
 );
 
 $page->articles = array(
-	new Article('Welcome',
-				'Our site is currently under construction, but feel free to have a look around!',
-				'',
-				'resources/images/soloist_still.png'),
-	new Article('Foo',
-				'BarBarBarBar BarBarBarBarBarBar BarBarBa rBarBar BarBar BarBarBarBa rBarBarBarBarBar BarBarBarBarB arBarBarB arBarBa r',
-				'resources/images/tairabw_50_edit.jpg')
+	new Article(
+		'Welcome',
+		'Our site is currently under construction, but feel free to have a look around!',
+		'',
+		'resources/images/soloist_still.png'),
+	new Article(
+		'Foo',
+		'BarBarBarBar BarBarBarBarBarBar BarBarBa rBarBar BarBar BarBarBarBa rBarBarBarBarBar BarBarBarBarB arBarBarB arBarBa r',
+		'resources/images/tairabw_50_edit.jpg')
 );
 
 
