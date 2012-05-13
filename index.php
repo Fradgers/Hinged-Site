@@ -10,12 +10,12 @@ $page->page_id = 'home';
 
 $page->links = array(
 	new Link('Home', 'home', 'index.php'),
-	//new Link('Classes', 'classes', 'classes.html'),
-	//new Link('Contact Us', 'contact', 'contact.html'),
 	new Link('The Soloist', 'soloist', 'soloist.php'),
 	new Link('Notredame', 'notredame', 'notredame.php'),
 	new Link('Videos', 'videos', 'videos.php'),
 	new Link('Reviews', 'reviews', '#'),
+	new Link('Classes', 'classes', 'classes.php'),
+	new Link('Contact Us', 'contact', 'contact.php'),
 );
 
 $page->slides = array(
@@ -42,12 +42,18 @@ $page->articles = array(
 	new Article(
 		'Welcome',
 		'Our site is currently under construction, but feel free to have a look around!',
-		'',
-		'resources/images/soloist_still.png'),
+		'resources/images/tairabw_100.jpg',
+		'resources/images/tairabw_50_edit.jpg'),
 	new Article(
-		'Foo',
-		'BarBarBarBar BarBarBarBarBarBar BarBarBa rBarBar BarBar BarBarBarBa rBarBarBarBarBar BarBarBarBarB arBarBarB arBarBa r',
-		'resources/images/tairabw_50_edit.jpg')
+		'New Soloist videos',
+		'Promos and footage from behind-the-scenes.',
+		'videos.php?show=soloist',
+		'resources/images/soloist_still_edit.png'),
+	new Article(
+		'Project teaser',
+		'Promo teaser for "Notredame"',
+		'notredame.php',
+		'resources/images/notredame_still.png'),
 );
 
 

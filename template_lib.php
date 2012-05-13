@@ -31,6 +31,35 @@ class Template {
 
 <?php
 
+/*function h($string) {
+	return htmlspecialchars($string);
+}*/
+
+function h($string)
+{
+    $search = array(chr(145),
+                    chr(146),
+                    chr(147),
+                    chr(148),
+                    chr(150),
+                    chr(151),
+                    chr(133));
+
+    $replace = array("'",
+                     "'",
+                     '"',
+                     '"',
+					 '-',
+                     '--',
+					 '...');
+
+    return str_replace($search, $replace, $string);
+} 
+
+?>
+
+<?php
+
 define('FLASH','flash');
 define('MP4','video/mp4');
 define('OGG','video/ogg');

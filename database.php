@@ -51,15 +51,6 @@ class Lookup {
 $data = array(
 
 	new Content(
-		'Promo',
-		'New promotional video for The Soloist.',
-		new VideoGroup(
-			new Video('http://www.youtube.com/v/XMslJ4kmvwc?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
-			VIDEO_LINK
-		),
-		'',
-		SOLOIST, TRAILER, VIDEO),
-	new Content(
 		'The Soloist',
 		'<p>
 		 On February 14th 2012, HINGED performed <b>The Soloist</b> as part of the Resolution!
@@ -82,31 +73,41 @@ $data = array(
 		'',
 		'',
 		SOLOIST, DESCRIPTION, TEXT),
+		
 	new Content(
-		'Rehearsal video',
-		'Header text for the first video.',
+		'Promo',
+		'New promotional video for The Soloist.',
 		new VideoGroup(
-			new Video('http://www.youtube.com/v/wU9XE7o3l7Q?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
+			new Video('http://www.youtube.com/v/XMslJ4kmvwc?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
 			VIDEO_LINK
 		),
-		'Footer text for the first video.',
-		SOLOIST, REHEARSAL, VIDEO),
+		'',
+		SOLOIST, TRAILER, VIDEO),
+
 	new Content(
 		'Review',
-		'First review text.',
-		'',
-		'',
-		SOLOIST, REVIEW, TEXT),
-	new Content(
-		'Review',
-		'Second review text.',
+		'<p>Hinged is a new contemporary dance company recently formed whose aim is to deliver a
+		 story through dance. Choreographer, Taira Foo emphasises “we want our performances to be
+		 filmic, so that we can really take the audience on an emotional journey”.</p>
+		 <p>Three Danceworks staff were lucky enough to go on that journey this week at The Place
+		 for their piece – The Soloist. We left the theatre having been fully involved in a heart-
+		 wrenching story based on the movie.</p>
+		 <p>“The performance of the Soloist was transporting me into Julliard’s world and its emotional
+		 fragility and existence was as if in another universe” felt Cherine.</p>
+		 <p>Though constrained by a running time of 25 minutes, the twelve dancers performing in
+		 The Soloist, including our own Sara Dos Santos, did an astonishing job, and with 9 pieces
+		 to learn in two weeks, with rarely a stop or breath between the numbers. But, according to
+		 Taira, Hinged is a very “physical company”.</p>
+		 <p>Each dancer was very different which really adds to the piece – all individuals each with
+		 their own story. Altogether, it makes The Soloist an impressive performance, which touched
+		 the audience’s heart.</p>',
 		'',
 		'',
 		SOLOIST, REVIEW, TEXT),
 		
 	new Content(
 		'Teaser Video',
-		'Header text for second video.',
+		'Header text for first video.',
 		new VideoGroup(
 			new Video('http://www.youtube.com/v/DD8nro616hM?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
 			VIDEO_LINK
@@ -115,13 +116,35 @@ $data = array(
 		SOLOIST, TRAILER, VIDEO),
 
 	new Content(
+		'Review',
+		'<p>The final work of the evening, HINGED’s The Soloist, was without doubt the most complete
+		 group performance of my Resolution! experience. Performed by choreographer Taira Foo’s mammoth
+		 cast of twelve dancers, this narrative work was attacked with dynamism and crisp precision.</p>
+		 <p>Power relationships flit back and forth as the protagonist, a violin player, seemingly
+		 conducts the chorus’ every move through the swish of his bow and ripple of his body. The
+		 performance was textured, complex, chaotic, pulsing, thrusting, bubbling and explosive… but
+		 with so much going on it did become rather brain frazzling!</p>',
+		'',
+		'',
+		SOLOIST, REVIEW, TEXT),
+	
+	new Content(
+		'Rehearsal video',
+		'Header text for the second video.',
+		new VideoGroup(
+			new Video('http://www.youtube.com/v/wU9XE7o3l7Q?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
+			VIDEO_LINK
+		),
+		'Footer text for the second video.',
+		SOLOIST, REHEARSAL, VIDEO),
+
+	new Content(
 		'Notredame',
-		'Notredame summary text. Notredame summary text. Notredame summary text.
-		 Notredame summary text. Notredame summary text. Notredame summary text.
-		 Notredame summary text. Notredame summary text.',
+		'--- --- --- --- --- --- --- --- --- ---',
 		 '',
 		 '',
 		 NOTREDAME, DESCRIPTION, TEXT),
+		 
 	new Content(
 		'Notredame Teaser Trailer',
 		'Header text for the teaser trailer.',
@@ -135,7 +158,6 @@ $data = array(
 		),
 		'Footer text for the teaser trailer.',
 		NOTREDAME, TRAILER, VIDEO)
-
 
 ); // end of data array
 

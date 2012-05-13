@@ -10,12 +10,12 @@ $page->page_id = SOLOIST;
 
 $page->links = array(
 	new Link('Home', 'home', 'index.php'),
-	//new Link('Classes', 'classes', 'classes.html'),
-	//new Link('Contact Us', 'contact', 'contact.html'),
 	new Link('The Soloist', 'soloist', 'soloist.php'),
 	new Link('Notredame', 'notredame', 'notredame.php'),
 	new Link('Videos', 'videos', 'videos.php'),
 	new Link('Reviews', 'reviews', '#'),
+	new Link('Classes', 'classes', 'classes.php'),
+	new Link('Contact Us', 'contact', 'contact.php'),
 );
 
 $page->slides = array(

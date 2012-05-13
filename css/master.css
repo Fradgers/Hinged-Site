@@ -36,6 +36,7 @@ body {
 	color: #f2f1df;
 	background: url(../resources/images/bw_gradient.png) repeat-y;
 	background-size: 100% 2px;
+	background-color: black;
 }
 
 #page-container {	/*pending removal*/
@@ -202,6 +203,9 @@ body.reviews .navigation#main_nav li#reviews a {
 body.home #content {
 	max-width: 100%;
 }
+body.videos #content {
+	max-width: 93%;
+}
 #content h2, p {
 	margin: 0;
 	padding: 0;
@@ -247,7 +251,7 @@ body.home #content {
 	background-color: #333333;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	max-width: 750px;
+	max-width: 720px;
 }
 #content .transbox.summary {
 	width:350px;
@@ -264,6 +268,7 @@ body.home #content {
 	padding-left: 25px;
 	padding-right: 25px;
 	padding-bottom: 25px;
+	width: 91%;
 	display:inline-table;	/*treats text inside content padding divs as non-text.*/
 							/*fixes an issue where, because content articles are treated as text*/
 							/*and also contain text, articles of different sizes weren't aligned correctly*/

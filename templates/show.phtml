@@ -70,7 +70,7 @@
 			<div class="article transbox">
 			<div class="padding">
 				<h2><?=$content->title?></h2>
-				<p><?=$content->summary1?></p>
+				<p><?=h($content->summary1)?></p>
 				<?php if ($content->videogroup): ?>
 					<!-- If the video list is marked as "flashonly", don't use html5 video tag,
 						 just embed first video directly as flash -->
@@ -94,7 +94,7 @@
 					<?php endif; ?>
 				<?php endif; ?>
 				<?php if ($content->summary2): ?>
-					<p><?=$content->summary2?></p>
+					<p><?=h($content->summary2)?></p>
 				<?php endif; ?>
 			</div></div>
 		<?php endforeach; ?>
