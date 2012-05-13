@@ -57,7 +57,7 @@
 		
 		<div id="logo" OnClick="document.location='index.html'">
 			<noscript><a href="index.html"></noscript>
-			<img src="images/icons/logo.png" width="200" height="75"/>
+			<img src="resources/images/icons/logo.png" width="200" height="75"/>
 			<noscript></a></noscript>
 		</div>
 		
@@ -104,7 +104,7 @@
 		
 		<!-- List of homepage articles -->
 		<?php foreach ($this->articles as $article): ?>
-			<div class="article transbox"
+			<div class="article transbox summary"
 				<?php if ($article->link): ?>
 					OnClick="document.location='<?=$article->link?>'"
 				<?php endif; ?>

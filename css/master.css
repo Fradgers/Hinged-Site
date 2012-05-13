@@ -209,10 +209,6 @@ body.home #content {
 	border: 3px dashed #000000;
 	text-align:left;			/*overrides #content text-align:center property*/
 }
-body.home #content .article {
-	!width: 377px;
-	!height: 240px;
-}
 #content .article img {
 	border: 2px solid black;
 	float: left;
@@ -243,12 +239,12 @@ body.home #content .article {
 	border-radius: 15px;
 	max-width: 800px;
 }
-body.home #content .transbox {
+#content .transbox.summary {
 	width:350px;
 	max-height:290px;
 	cursor: pointer;
 }
-body.home #content .transbox:hover {
+#content .transbox.summary:hover {
 	background-color: #111111;
 	border: 3px solid #ad3748;
 }
