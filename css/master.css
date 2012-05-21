@@ -57,7 +57,7 @@ body {
 	!float:left;
 	!position:absolute;
 	margin-left: 150px;		/*offset by width of navigation bar*/
-	z-index: -50;
+	z-index: 0;
 }
 
 .slideshow img {
