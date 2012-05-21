@@ -1,0 +1,125 @@
+<?php
+	$this->slideshow_template = 'slideshow_basic.phtml';
+
+	$this->links = array(
+		new Link('Home', 'home', 'index.php'),
+		new Link('The Soloist', 'soloist', 'soloist.php'),
+		new Link('Notredame', 'notredame', 'notredame.php'),
+		new Link('Videos', 'videos', 'videos.php'),
+		new Link('Reviews', 'reviews', '#'),
+		new Link('Classes', 'classes', 'classes.php'),
+		new Link('Contact Us', 'contact', 'contact.php'),
+	);
+	
+	$this->render('header.phtml');
+?>
+
+<body class="<?=$this->page_id?>">
+<div id="page-container">
+
+	<div id="header">
+	
+		<!-- Navigation links -->
+		<div class="navigation" id="main_nav">
+			<ul>
+				<?php foreach ($this->links as $link): ?>
+					<li id="<?=$link->style_id?>"><a href="<?=$link->link?>"><?=$link->name?></a></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+
+		<div id="slideshow" class="slideshow">
+			<?php foreach ($this->slides as $slide): ?>
+				<img src="<?=$slide?>" width="760" height="548"/>
+			<?php endforeach; ?>
+		</div> <!-- End of slideshow -->
+		
+		<div id="logo" OnClick="document.location='index.php'">
+			<noscript><a href="index.php"></noscript>
+			<img src="resources/images/icons/logo.png" width="200" height="75"/>
+			<noscript></a></noscript>
+		</div>
+		
+	</div> <!-- End of header -->
+	
+	<div id="content"> <!-- Video filter controls -->
+		
+		<div class="article transbox">
+		<div class="padding">
+			<form action="videos.php" method="get">
+				<table cellpadding="3px">
+					<tr>
+						<td><h2>Video filter</h2></td>
+						<td align="right">Show:</td>
+						<td>
+							<select name="show">
+								<option value="">Any</option>
+								<option value="soloist">The Soloist</option>
+								<option value="notredame">Notredame</option>
+							</select>
+						</td>
+						<td align="right">Type:</td>
+						<td>
+							<select name="type">
+								<option value="">Any</option>
+								<option value="trailer">Trailer</option>
+								<option value="rehearsal">Rehearsal</option>
+								<option disabled="disabled" value="performance">Performance</option>
+							</select>
+						</td>
+						<td align="right"><input type="submit" value="Go" /></td>
+					</tr>
+				</table>
+			</form>
+		</div></div>
+	</div> <!-- End Video filter controls -->
+	
+	<div id="content"> <!-- Collection of show content -->
+		
+		<?php foreach ($this->contents as $content): ?>
+			<div class="article transbox">
+			<div class="padding">
+				<table>
+					<tr>
+						<td rowspan="2">
+							<!-- If the video list is marked as "flashonly", don't use html5 video tag,
+								 just embed first video directly as flash -->
+							<?php if ($content->videogroup->type == VIDEO_LINK): ?>
+								<embed src="<?=$content->videogroup->videos->location?>" type="application/x-shockwave-flash" width="420" height="240" allowscriptaccess="always" allowfullscreen="true"></embed>
+							<?php else: ?>
+								<!-- Otherwise use html5 video tag as normal (use any flash urls as fallback) -->
+								<video width="420" height="240" controls="controls" poster="resources/images/notredame_still.png">
+								
+								<?php foreach ($content->videogroup->videos as $video): ?>
+									<?php if ($video->type != FLASH): ?>
+										<source src="<?=$video->location?>" type="<?=$video->type?>" />
+									<?php else: ?>
+										<embed src="<?=$video->location?>" type="application/x-shockwave-flash" width="420" height="240" allowscriptaccess="always" allowfullscreen="true">
+											Bad browser!
+										</embed>
+									<?php endif; ?>
+								<?php endforeach; ?>
+								
+								</video>
+							<?php endif; ?>
+						</td>
+						<td valign="bottom">
+							<h2><?=$content->title?></h2>
+						</td>
+					</tr>
+					<tr>
+						<td valign="top">
+							<p><?=$content->summary1?></p>
+						</td>
+					</tr>
+				</table>
+			</div></div>
+		<?php endforeach; ?>
+
+		<!-- End of list of homepage articles -->
+		
+	</div> <!-- End of content -->
+	
+<?php
+	$this->render('footer.phtml');
+?>

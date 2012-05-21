@@ -8,16 +8,6 @@ $page = new Template();
 $page->title = 'HINGED';
 $page->page_id = 'home';
 
-$page->links = array(
-	new Link('Home', 'home', 'index.php'),
-	new Link('The Soloist', 'soloist', 'soloist.php'),
-	new Link('Notredame', 'notredame', 'notredame.php'),
-	new Link('Videos', 'videos', 'videos.php'),
-	new Link('Reviews', 'reviews', '#'),
-	new Link('Classes', 'classes', 'classes.php'),
-	new Link('Contact Us', 'contact', 'contact.php'),
-);
-
 $page->slides = array(
 	'resources/images/dance_photos_3.jpg',
 	'resources/images/sepia1.jpg',

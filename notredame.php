@@ -5,9 +5,8 @@ include_once('database.php');
 
 $page = new Template();
 
-$page->title = 'HINGED - The Soloist';
-$page->page_id = SOLOIST;
-
+$page->title = 'HINGED - Notredame';
+$page->page_id = NOTREDAME;
 
 $page->slides = array(
 	'resources/images/dance_photos_3.jpg',

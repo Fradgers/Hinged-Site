@@ -1,0 +1,18 @@
+
+<!-- include jQuery library and Cycle slideshow plugin -->
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.cycle.all.latest.js"></script>
+
+<!-- Cycle slideshow settings -->
+<script type="text/javascript">
+$(document).ready(function() {
+$('.slideshow').cycle({
+	fx:     'scrollHorz',
+	prev:   '#prev',
+	next:   '#next',
+	timeout: 4000,
+	speed: 2000,
+	pause: 1
+});
+});
+</script>

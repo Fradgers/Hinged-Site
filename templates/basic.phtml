@@ -1,0 +1,59 @@
+<?php
+	$this->slideshow_template = 'slideshow_basic.phtml';
+
+	$this->links = array(
+		new Link('Home', 'home', 'index.php'),
+		new Link('The Soloist', 'soloist', 'soloist.php'),
+		new Link('Notredame', 'notredame', 'notredame.php'),
+		new Link('Videos', 'videos', 'videos.php'),
+		new Link('Reviews', 'reviews', '#'),
+		new Link('Classes', 'classes', 'classes.php'),
+		new Link('Contact Us', 'contact', 'contact.php'),
+	);
+	
+	$this->render('header.phtml');
+?>
+
+<body class="<?=$this->page_id?>">
+<div id="page-container">
+
+	<div id="header">
+	
+		<!-- Navigation links -->
+		<div class="navigation" id="main_nav">
+			<ul>
+				<?php foreach ($this->links as $link): ?>
+					<li id="<?=$link->style_id?>"><a href="<?=$link->link?>"><?=$link->name?></a></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+
+		<div id="slideshow" class="slideshow">
+			<?php foreach ($this->slides as $slide): ?>
+				<img src="<?=$slide?>" width="760" height="548"/>
+			<?php endforeach; ?>
+		</div> <!-- End of slideshow -->
+		
+		<div id="logo" OnClick="document.location='index.php'">
+			<noscript><a href="index.php"></noscript>
+			<img src="resources/images/icons/logo.png" width="200" height="75"/>
+			<noscript></a></noscript>
+		</div>
+		
+	</div> <!-- End of header -->
+	
+	<div id="content"> <!-- Content -->
+		
+			<div class="article transbox">
+			<div class="padding">
+				<h2><?=$this->content->title?></h2>
+				<p><?=$this->content->summary1?></p>
+				<?php if ($this->content->summary2): ?>
+					<p><?=$this->content->summary2?></p>
+				<?php endif; ?>
+			</div></div>
+	</div> <!-- End of Content -->
+	
+<?php
+	$this->render('footer.phtml');
+?>

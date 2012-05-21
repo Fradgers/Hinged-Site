@@ -5,9 +5,8 @@ include_once('database.php');
 
 $page = new Template();
 
-$page->title = 'HINGED - The Soloist';
-$page->page_id = SOLOIST;
-
+$page->title = 'HINGED - All videos';
+$page->page_id = 'videos';
 
 $page->slides = array(
 	'resources/images/dance_photos_3.jpg',
@@ -19,10 +18,12 @@ $page->slides = array(
 );
 
 $lookup = new Lookup();
-$lookup->key_show_id = $page->page_id;
+$lookup->key_show_id = filter_input(INPUT_GET, 'show');
+$lookup->key_content_type = filter_input(INPUT_GET, 'type');
+$lookup->key_resource_type = VIDEO;
 
 $page->contents = $lookup->filter($data);
 
-$page->render('show.phtml');
+$page->render('videos.phtml');
 
 ?>

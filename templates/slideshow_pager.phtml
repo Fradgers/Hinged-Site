@@ -1,0 +1,63 @@
+	<!-- include jQuery library and Cycle slideshow plugin -->
+	<script type="text/javascript" src="scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery.cycle.all.latest.js"></script>
+	
+	<style type="text/css">
+#nav {
+!float: right;
+}
+
+#nav li {
+width: 76px;
+margin: 5px;
+list-style: none;
+z-index: 50;
+float: left;
+}
+
+#nav a {
+position: relative;
+width: 76px;
+padding: 3px;
+display: block;
+border: 1px solid #ccc;
+background: #f2f1df;
+z-index: 50;
+}
+
+#nav li.activeSlide a {
+background: #de6619;
+}
+
+#nav a:focus {
+outline: none;
+}
+
+#nav img {
+border: none;
+display: block;
+}
+	</style>
+	
+	<!-- Cycle slideshow settings -->
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('.slideshow').cycle({
+			fx:     'scrollHorz',
+			prev:   '#prev',
+			next:   '#next',
+			timeout: 4000,
+			speed: 2000,
+			pager: '#nav',
+			pagerEvent: 'mouseover',
+			slideExpr: 'img',
+			pause: 1,
+			fastOnEvent: true,
+			   
+			// callback fn that creates a thumbnail to use as pager anchor 
+			pagerAnchorBuilder: function(idx, slide) { 
+				return '<li><a href="#"><img src="' + slide.src + '" width="76" height="55" /></a></li>'; 
+			}
+		});
+	});
+	</script>
