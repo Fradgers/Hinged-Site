@@ -7,7 +7,6 @@
 !float: right;
 height: 76px;
 overflow: hidden;
-margin-left: -20px;
 }
 
 #nav li {
@@ -46,8 +45,41 @@ display: block;
 	<script type="text/javascript">
 	
 	function onAfter(curr, next, opts) {
-		var offset = (opts.currSlide * -86) + "px";
+		var slideIdx = opts.currSlide;
+		var thumbsToLeft = 3;
+		var numThumbs = 8;
+		var thumbsToRight = numThumbs - (thumbsToLeft - 1);
+		
+		var offset = ""
+		if (slideIdx <= thumbsToLeft) {
+			offset = "0px";
+		}
+		else if (slideIdx > 11 - thumbsToRight) {
+			offset = -258 + "px";
+		}
+		else {
+			offset = ((slideIdx - thumbsToLeft) * -86) + "px"
+		}
+	
 		$('#nav').css("margin-left", offset);
+		
+		/*
+		slideIdx, numSlides, showWidth, thumbWidth;
+		
+		numThumbsDisplayed = showWidth / thumbWidth;
+		
+		// if current slide is near start or end of show
+		IF (slideIdx) < (numThumbsDisplayed / 2)
+		OR (numSlides - slideIdx > (numThumbsDisplayed / 2)
+		{
+			
+		}
+		OTHERWISE
+		{
+			
+		}
+		
+		*/
 	}
 	
 	$(document).ready(function() {
@@ -58,7 +90,7 @@ display: block;
 			timeout: 4000,
 			speed: 2000,
 			pager: '#nav',
-			pagerEvent: 'mouseover',
+			//pagerEvent: 'mouseclick',
 			slideExpr: 'img',
 			pause: 1,
 			fastOnEvent: true,
