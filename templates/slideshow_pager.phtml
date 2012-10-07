@@ -67,8 +67,10 @@ display: block;
 		/* make the thumbnails scroll smoothly (easing) */
 		var moveDest = {'margin-left': offset}
 		var animStyle = {
-			duration: 1500,
-			queue: false
+			duration: 2000,
+			queue: false,
+			easeIn: 'easeInCubic',
+			easeOut: 'easeOutCubic'
 		}
 
 		/* TODO: fix popping of rightmost thumbnail */
