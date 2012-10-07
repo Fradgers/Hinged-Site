@@ -44,42 +44,29 @@ display: block;
 	<!-- Cycle slideshow settings -->
 	<script type="text/javascript">
 	
+	/* Shift the thumbnail list horizontally when the sildeshow transitions */
 	function onAfter(curr, next, opts) {
 		var slideIdx = opts.currSlide;
 		var thumbsToLeft = 3;
 		var numThumbs = 8;
 		var thumbsToRight = numThumbs - (thumbsToLeft - 1);
 		
+		var staticOffset = 50;
 		var offset = ""
+		
 		if (slideIdx <= thumbsToLeft) {
-			offset = "0px";
+			offset = staticOffset + "px";
 		}
 		else if (slideIdx > 11 - thumbsToRight) {
-			offset = -258 + "px";
+			offset = staticOffset + -258 + "px";
 		}
 		else {
-			offset = ((slideIdx - thumbsToLeft) * -86) + "px"
+			offset = staticOffset + ((slideIdx - thumbsToLeft) * -86) + "px"
 		}
 	
 		$('#nav').css("margin-left", offset);
 		
-		/*
-		slideIdx, numSlides, showWidth, thumbWidth;
-		
-		numThumbsDisplayed = showWidth / thumbWidth;
-		
-		// if current slide is near start or end of show
-		IF (slideIdx) < (numThumbsDisplayed / 2)
-		OR (numSlides - slideIdx > (numThumbsDisplayed / 2)
-		{
-			
-		}
-		OTHERWISE
-		{
-			
-		}
-		
-		*/
+		/* TODO: make the thumbnails scroll smoothly (easing) */
 	}
 	
 	$(document).ready(function() {
@@ -90,7 +77,6 @@ display: block;
 			timeout: 4000,
 			speed: 2000,
 			pager: '#nav',
-			//pagerEvent: 'mouseclick',
 			slideExpr: 'img',
 			pause: 1,
 			fastOnEvent: true,
