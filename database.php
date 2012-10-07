@@ -25,8 +25,11 @@ function convert_url_query($query) {
 
 class Lookup {
 	public $key_show_id = '';
+	
 	public $key_content_type = '';
-	public $key_resource_type = '';	
+	public $content_type_invert_results = false;
+	
+	public $key_resource_type = '';
 	
 	public function filter($array) {
 		return array_filter($array, array($this,"callback"));
@@ -41,14 +44,53 @@ class Lookup {
 		if ($this->key_resource_type && ($content->resource_type != $this->key_resource_type))
 			return false;
 			
-		if ($this->key_content_type && ($content->content_type != $this->key_content_type))
-			return false;
+		if ($this->key_content_type)
+		{
+			if ($content->content_type != $this->key_content_type)
+			{
+				if (!$this->content_type_invert_results)
+					return false;
+			}
+			else
+			{
+				if ($this->content_type_invert_results)
+					return false;
+			}
+		}
 			
 		return true;
 	}
+	
+	/*
+		// check for match of specified keys against given content
+		protected function callback($content)
+		{
+			if ($this->key_show_id && ($content->show_id != $this->key_show_id))
+				return false;
+			
+			if ($this->key_resource_type && ($content->resource_type != $this->key_resource_type))
+				return false;
+				
+			if ($this->key_content_type && ($content->content_type != $this->key_content_type))
+				return false;
+				
+			return true;
+		}
+	*/
+	
 }
 
 $data = array(
+		
+	new Content(
+		'Promo',
+		'New promotional video for The Soloist.',
+		new VideoGroup(
+			new Video('http://www.youtube.com/v/XMslJ4kmvwc?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
+			VIDEO_LINK
+		),
+		'',
+		SOLOIST, TRAILER, VIDEO),
 
 	new Content(
 		'The Soloist',
@@ -75,16 +117,6 @@ $data = array(
 		SOLOIST, DESCRIPTION, TEXT),
 		
 	new Content(
-		'Promo',
-		'New promotional video for The Soloist.',
-		new VideoGroup(
-			new Video('http://www.youtube.com/v/XMslJ4kmvwc?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
-			VIDEO_LINK
-		),
-		'',
-		SOLOIST, TRAILER, VIDEO),
-
-	new Content(
 		'Review',
 		'<p>Hinged is a new contemporary dance company recently formed whose aim is to deliver a
 		 story through dance. Choreographer, Taira Foo emphasises “we want our performances to be
@@ -107,7 +139,7 @@ $data = array(
 		
 	new Content(
 		'Teaser Video',
-		'Header text for first video.',
+		'Preview of The Soloist',
 		new VideoGroup(
 			new Video('http://www.youtube.com/v/DD8nro616hM?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
 			VIDEO_LINK
@@ -130,24 +162,24 @@ $data = array(
 	
 	new Content(
 		'Rehearsal video',
-		'Header text for the second video.',
+		'Rehearsals for The Soloist',
 		new VideoGroup(
 			new Video('http://www.youtube.com/v/wU9XE7o3l7Q?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
 			VIDEO_LINK
 		),
-		'Footer text for the second video.',
+		'',
 		SOLOIST, REHEARSAL, VIDEO),
 
 	new Content(
 		'Notredame',
-		'--- --- --- --- --- --- --- --- --- ---',
-		 '',
-		 '',
-		 NOTREDAME, DESCRIPTION, TEXT),
+		'',
+		'',
+		'',
+		NOTREDAME, DESCRIPTION, TEXT),
 		 
 	new Content(
-		'Notredame Teaser Trailer',
-		'Header text for the teaser trailer.',
+		'Teaser Trailer',
+		'Teaser video for the Notredame project.',
 		new VideoGroup(
 			array(
 				new Video('resources/videos/notredame.mp4',MP4),
@@ -156,7 +188,7 @@ $data = array(
 			),
 			VIDEO_FILE
 		),
-		'Footer text for the teaser trailer.',
+		'',
 		NOTREDAME, TRAILER, VIDEO)
 
 ); // end of data array
