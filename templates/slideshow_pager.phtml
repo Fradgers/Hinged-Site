@@ -45,9 +45,8 @@ display: block;
 	<script type="text/javascript">
 	
 	/* Shift the thumbnail list horizontally when the slideshow transitions */
-	function shiftThumbs(curr, next, opts) {
-		var currSlideIdx = opts.currSlide;
-		var newSlideIdx = currSlideIdx + 1;
+	function shiftThumbs(currSlide, nextSlide, opts) {
+		var newSlideIdx = opts.nextSlide;
 		var thumbsToLeft = 3;
 		var numThumbs = 8;
 		var thumbsToRight = numThumbs - (thumbsToLeft - 1);
@@ -55,10 +54,10 @@ display: block;
 		var staticOffset = 50;
 		var offset = ""
 		
-		if (newSlideIdx <= thumbsToLeft || newSlideIdx == 11) {
+		if (newSlideIdx <= thumbsToLeft || newSlideIdx == opts.slideCount) {
 			offset = staticOffset + "px";
 		}
-		else if (newSlideIdx > 11 - thumbsToRight) {
+		else if (newSlideIdx > opts.slideCount - thumbsToRight) {
 			offset = staticOffset + -258 + "px";
 		}
 		else {
@@ -66,8 +65,14 @@ display: block;
 		}
 	
 		/* make the thumbnails scroll smoothly (easing) */
-		var cssObj = {'margin-left': offset}
-		$('#nav').animate(cssObj, 2000, function(){});
+		var moveDest = {'margin-left': offset}
+		var animStyle = {
+			duration: 1500,
+			queue: false
+		}
+
+		/* TODO: fix popping of rightmost thumbnail */
+		$('#nav').animate(moveDest, animStyle);
 	}
 	
 	$(document).ready(function() {
