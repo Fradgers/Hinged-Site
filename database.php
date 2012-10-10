@@ -103,7 +103,7 @@ $data = array(
 		 with a seamless racing energy. The athletic, fast-paced choreography contrasted
 		 well with intervals of stillness and moments of weightlessness. The angular movement
 		 took the audience from one emotional state to another, through fluid transitions,
-		 shifting from the floor to standing within a split second – riveting the audience to
+		 shifting from the floor to standing within a split second &ndash; riveting the audience to
 		 both the story and the pure movement phrases of the choreography.
 		</p><p>
 		 There is a strong sense of honesty in the choreography; although introverted and
@@ -119,20 +119,20 @@ $data = array(
 	new Content(
 		'Review',
 		'<p>Hinged is a new contemporary dance company recently formed whose aim is to deliver a
-		 story through dance. Choreographer, Taira Foo emphasises “we want our performances to be
-		 filmic, so that we can really take the audience on an emotional journey”.</p>
+		 story through dance. Choreographer, Taira Foo emphasises "we want our performances to be
+		 filmic, so that we can really take the audience on an emotional journey".</p>
 		 <p>Three Danceworks staff were lucky enough to go on that journey this week at The Place
-		 for their piece – The Soloist. We left the theatre having been fully involved in a heart-
-		 wrenching story based on the movie.</p>
-		 <p>“The performance of the Soloist was transporting me into Julliard’s world and its emotional
-		 fragility and existence was as if in another universe” felt Cherine.</p>
+		 for their piece &ndash; The Soloist. We left the theatre having been fully involved in a heart-wrenching
+		 story based on the movie.</p>
+		 <p>"The performance of the Soloist was transporting me into Julliard&#39;s world and its emotional
+		 fragility and existence was as if in another universe" felt Cherine.</p>
 		 <p>Though constrained by a running time of 25 minutes, the twelve dancers performing in
 		 The Soloist, including our own Sara Dos Santos, did an astonishing job, and with 9 pieces
 		 to learn in two weeks, with rarely a stop or breath between the numbers. But, according to
-		 Taira, Hinged is a very “physical company”.</p>
-		 <p>Each dancer was very different which really adds to the piece – all individuals each with
+		 Taira, Hinged is a very "physical company".</p>
+		 <p>Each dancer was very different which really adds to the piece &ndash; all individuals each with
 		 their own story. Altogether, it makes The Soloist an impressive performance, which touched
-		 the audience’s heart.</p>',
+		 the audience&#39;s heart.</p>',
 		'',
 		'',
 		SOLOIST, REVIEW, TEXT),
@@ -149,12 +149,12 @@ $data = array(
 
 	new Content(
 		'Review',
-		'<p>The final work of the evening, HINGED’s The Soloist, was without doubt the most complete
-		 group performance of my Resolution! experience. Performed by choreographer Taira Foo’s mammoth
+		'<p>The final work of the evening, HINGED&#39;s The Soloist, was without doubt the most complete
+		 group performance of my Resolution! experience. Performed by choreographer Taira Foo&#39;s mammoth
 		 cast of twelve dancers, this narrative work was attacked with dynamism and crisp precision.</p>
 		 <p>Power relationships flit back and forth as the protagonist, a violin player, seemingly
-		 conducts the chorus’ every move through the swish of his bow and ripple of his body. The
-		 performance was textured, complex, chaotic, pulsing, thrusting, bubbling and explosive… but
+		 conducts the chorus&#39; every move through the swish of his bow and ripple of his body. The
+		 performance was textured, complex, chaotic, pulsing, thrusting, bubbling and explosive&hellip; but
 		 with so much going on it did become rather brain frazzling!</p>',
 		'',
 		'',
