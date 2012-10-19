@@ -24,7 +24,8 @@ $page->slides = array(
 
 $page->content = new Content(
 	'Classes',
-	'For CLASSES please call CHOREOGRAPHER: Taira Foo on: <b>07969780063</b> to discuss your personal requirements.',
+	'<p>For CLASSES please call CHOREOGRAPHER: Taira Foo on: <b>07969780063</b> to discuss your personal requirements.</p>
+    <p>Or see <a href="http://www.danceworks.net/teachers/taira-foo">Danceworks.net</a> for more details.</p>',
 	'',
 	'',
 	'', DESCRIPTION, TEXT
