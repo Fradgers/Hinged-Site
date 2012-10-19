@@ -81,7 +81,7 @@ class Lookup {
 }
 
 $data = array(
-		
+    	
 	new Content(
 		'Promo',
 		'New promotional video for The Soloist.',
@@ -91,6 +91,16 @@ $data = array(
 		),
 		'',
 		SOLOIST, TRAILER, VIDEO),
+        
+	new Content(
+		'Rehearsals',
+		'New video compilation of rehearsals for Hinged's performance of The Soloist.',
+		new VideoGroup(
+			new Video('http://www.youtube.com/embed/_XKbvoHo9YY',FLASH),
+			VIDEO_LINK
+		),
+		'',
+		SOLOIST, REHEARSAL, VIDEO),
 
 	new Content(
 		'The Soloist',
