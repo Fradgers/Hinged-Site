@@ -94,9 +94,9 @@ $data = array(
         
 	new Content(
 		'Rehearsals',
-		'New video compilation of rehearsals for Hinged's performance of The Soloist.',
+		'New video compilation of rehearsals for Hinged&#39;s performance of The Soloist.',
 		new VideoGroup(
-			new Video('http://www.youtube.com/embed/_XKbvoHo9YY',FLASH),
+			new Video('http://www.youtube.com/v/_XKbvoHo9YY?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
 			VIDEO_LINK
 		),
 		'',
