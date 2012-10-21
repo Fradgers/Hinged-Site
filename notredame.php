@@ -1,6 +1,12 @@
 
 <?php
 
+
+
+
+
+
+
 include_once('database.php');
 
 $page = new Template();
