@@ -76,6 +76,7 @@ class Video {
 }
 
 define('VIDEO_LINK','flashonly');
+define('VIMEO_LINK','vimeo');
 define('VIDEO_FILE','');
 
 class VideoGroup {
@@ -100,6 +101,7 @@ define('OTHER','other');
 
 define('NOTREDAME','notredame');
 define('SOLOIST','soloist');
+define('RAINMAN','rainman');
 
 define('REHEARSAL','rehearsal');
 define('PERFORMANCE','performance');

@@ -4,7 +4,7 @@
 	$this->links = array(
 		new Link('Home', 'home', 'index.php'),
 		new Link('The Soloist', 'soloist', 'soloist.php'),
-		new Link('Notredame', 'notredame', 'notredame.php'),
+		new Link('Rainman', 'rainman', 'rainman.php'),
 		new Link('Videos', 'videos', 'videos.php'),
 		new Link('Reviews', 'reviews', 'reviews.php'),
 		new Link('Classes', 'classes', 'classes.php'),
@@ -58,20 +58,26 @@
 				<?php if ($content->videogroup->type == VIDEO_LINK): ?>
 					<embed src="<?=$content->videogroup->videos->location?>" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>
 				<?php else: ?>
-					<!-- Otherwise use html5 video tag as normal (use any flash urls as fallback) -->
-					<video width="480" height="270" controls="controls" poster="resources/images/notredame_still.png">
-					
-					<?php foreach ($content->videogroup->videos as $video): ?>
-						<?php if ($video->type != FLASH): ?>
-							<source src="<?=$video->location?>" type="<?=$video->type?>" />
-						<?php else: ?>
-							<embed src="<?=$video->location?>" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true">
-								Bad browser!
-							</embed>
-						<?php endif; ?>
-					<?php endforeach; ?>
-					
-					</video>
+
+					<?php if ($content->videogroup->type == VIMEO_LINK): ?>
+						<iframe src="<?=$content->videogroup->videos->location?>" width="500" height="281" allowfullscreen="true"></iframe>
+					<?php else: ?>
+
+						<!-- Otherwise use html5 video tag as normal (use any flash urls as fallback) -->
+						<video width="480" height="270" controls="controls" poster="resources/images/notredame_still.png">
+						
+						<?php foreach ($content->videogroup->videos as $video): ?>
+							<?php if ($video->type != FLASH): ?>
+								<source src="<?=$video->location?>" type="<?=$video->type?>" />
+							<?php else: ?>
+								<embed src="<?=$video->location?>" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true">
+									Bad browser!
+								</embed>
+							<?php endif; ?>
+						<?php endforeach; ?>
+						
+						</video>
+					<?php endif; ?>
 				<?php endif; ?>
 			<?php endif; ?>
 			<?php if ($content->summary2): ?>
