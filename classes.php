@@ -11,8 +11,10 @@ $page->page_id = 'classes';
 $page->slides = array(
 	'resources/images/dance_photos_3.jpg',
 	'resources/images/Pike and a half.jpg',
+	'resources/images/CMG_1072.jpg',
 	'resources/images/IMG_8438.jpg',
 	'resources/images/Pike chair.jpg',
+	'resources/images/CMG_1074.jpg',
 	'resources/images/sepia1.jpg',
 	'resources/images/IMG_8444.jpg',
 	'resources/images/Home end.jpg',
