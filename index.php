@@ -30,15 +30,15 @@ $page->slides = array(
 );
 
 $page->featured = new Content(
-	'Featured Video',
-	'New promotional video for The Soloist.',
-	new VideoGroup(
-		new Video('http://www.youtube.com/v/XMslJ4kmvwc?version=3&amp;hl=en_GB&amp;rel=0',FLASH),
-		VIDEO_LINK
-	),
-	'',
-	SOLOIST, TRAILER, VIDEO
-);
+		'Rainman Trailer',
+		'',
+		new VideoGroup(
+			new Video('http://player.vimeo.com/video/61883722',FLASH),
+			VIMEO_LINK
+		),
+		'',
+		RAINMAN, TRAILER, VIDEO
+	);
 
 $page->articles = array(
 	new Article(

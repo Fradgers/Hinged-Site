@@ -82,20 +82,25 @@ journey.</p>
 					<?php if ($this->featured->videogroup->type == VIDEO_LINK): ?>
 						<embed src="<?=$this->featured->videogroup->videos->location?>" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>
 					<?php else: ?>
-						<!-- Otherwise use html5 video tag as normal (use any flash urls as fallback) -->
-						<video width="480" height="270" controls="controls" poster="images/notredame_still.png">
+												
+						<?php if ($this->featured->videogroup->type == VIMEO_LINK): ?>
+							<iframe src="<?=$this->featured->videogroup->videos->location?>" width="500" height="281" allowfullscreen="true"></iframe>
+						<?php else: ?>
+							<!-- Otherwise use html5 video tag as normal (use any flash urls as fallback) -->
+							<video width="480" height="270" controls="controls" poster="images/notredame_still.png">
 						
-						<?php foreach ($this->featured->videogroup->videos as $video): ?>
-							<?php if ($video->type != FLASH): ?>
-								<source src="<?=$video->location?>" type="<?=$video->type?>" />
-							<?php else: ?>
-								<embed src="<?=$video->location?>" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true">
-									Bad browser!
-								</embed>
-							<?php endif; ?>
-						<?php endforeach; ?>
+							<?php foreach ($this->featured->videogroup->videos as $video): ?>
+								<?php if ($video->type != FLASH): ?>
+									<source src="<?=$video->location?>" type="<?=$video->type?>" />
+								<?php else: ?>
+									<embed src="<?=$video->location?>" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true">
+										Bad browser!
+									</embed>
+								<?php endif; ?>
+							<?php endforeach; ?>
 						
-						</video>
+							</video>
+						<?php endif; ?>
 					<?php endif; ?>
 				<?php endif; ?>
 				<?php if ($this->featured->summary2): ?>

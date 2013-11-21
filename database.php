@@ -112,6 +112,16 @@ $data = array(
 		),
 		'',
 		RAINMAN, TRAILER, VIDEO),
+		
+	new Content(
+		'Choreographer Showreel',
+		'',
+		new VideoGroup(
+			new Video('http://player.vimeo.com/video/71110882',FLASH),
+			VIMEO_LINK
+		),
+		'',
+		OTHER, TRAILER, VIDEO),
 	
 	new Content(
 		'The Soloist',
